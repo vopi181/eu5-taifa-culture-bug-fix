@@ -1,0 +1,40 @@
+# Across the Pillars: preserve the vanilla taifa definition and add its missing
+# culture enforcement. The on_enable rule follows vanilla dominion.txt.
+INJECT:taifa = {
+	on_enable = {
+		if = {
+			limit = {
+				culture = {
+					NOR = {
+						this = scope:future_overlord.culture
+						reverse_cultural_view = {
+							target = scope:future_overlord.culture
+							value = kindred
+						}
+					}
+				}
+			}
+			change_culture = scope:future_overlord.culture
+		}
+	}
+
+	# Repair already released subjects on their next monthly update. This also
+	# handles releases that initialize culture after on_enable has run.
+	on_monthly = {
+		if = {
+			limit = {
+				exists = overlord
+				culture = {
+					NOR = {
+						this = root.overlord.culture
+						reverse_cultural_view = {
+							target = root.overlord.culture
+							value = kindred
+						}
+					}
+				}
+			}
+			change_culture = overlord.culture
+		}
+	}
+}

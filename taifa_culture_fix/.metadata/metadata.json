@@ -1,0 +1,11 @@
+{
+  "name": "Taifa Culture Fix",
+  "id": "local.taifa_culture_fix",
+  "version": "1.0.0",
+  "game_id": "eu5",
+  "supported_game_version": "1.4.*",
+  "short_description": "Enforces the overlord-or-kindred primary culture rule for new and existing taifa subjects.",
+  "tags": ["Fixes", "Culture & Art", "Diplomacy"],
+  "relationships": [],
+  "game_custom_data": {}
+}
